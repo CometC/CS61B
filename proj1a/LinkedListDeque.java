@@ -112,7 +112,21 @@ public class LinkedListDeque<T> {
             i++;
         }
         return p.item;
+    }
 
+
+    public T getRecursive(int index) {
+        return getRecursiveHelper(sentinel.next, index);
+    }
+
+    private T getRecursiveHelper(Node curr, int index) {
+        if (index == 0) {
+            return curr.item;
+        }
+        else {
+            curr = curr.next;
+            return getRecursiveHelper(curr, index - 1);
+        }
     }
 
     public static void main(String[] args) {
